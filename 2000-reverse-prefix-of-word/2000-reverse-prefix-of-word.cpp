@@ -15,7 +15,7 @@ public:
             }
             
             else{
-                ans = ans+word[i];
+                ans += word[i];
                 }
         }
         
