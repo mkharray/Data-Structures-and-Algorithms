@@ -19,15 +19,19 @@ public:
         while(curr != NULL){
        
         v.push_back(curr->val);
-            
-        vv.push_back(curr->val);
-            
              curr=curr->next;
         }
+        
+        curr = head;
         reverse(v.begin(),v.end());
-                if(v == vv)
+        for(int i = 0 ; i < v.size()/2 ;i++)
+        {
+            cout<<v[i]<<" "<<curr->val<<endl;
+        if(curr->val != v[i])
+            return false;
+            
+            curr=curr->next;
+        }
            return true;
-           else
-           return false;
     }
 };
