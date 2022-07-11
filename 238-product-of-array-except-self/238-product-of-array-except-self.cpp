@@ -3,10 +3,8 @@ public:
     vector<int> productExceptSelf(vector<int>& nums) {
     int product = 1;
         int countzero = 0;
-    unordered_set<int>us;
         for(int  i = 0; i < nums.size(); i++){
         if(nums[i] == 0){
-            us.insert({i});
             countzero++;
         }
             else
