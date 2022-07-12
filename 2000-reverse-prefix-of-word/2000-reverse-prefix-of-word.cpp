@@ -1,27 +1,19 @@
 class Solution {
 public:
     string reversePrefix(string word, char ch) {
-        int flag = 0;
-        string ans = "";
-        for(int i= 0 ; i < word.length();i++){
-            if(flag == 0 ){
-            if(ch == word[i]){
-                flag = -99;
-                ans = ch+ans;
-                }
-            else{
-                ans = word[i] + ans;
-                    }
+        string ans = word;
+        for(int i  = 0; i < word.length(); i++){
+            if(word[i] == ch)
+            {
+                ans =word.substr(0,i+1);
+               reverse(ans.begin(), ans.end());
+                cout<<ans<<" ";
+                ans = ans + word.substr(i+1);
+                
+                goto end;
             }
-            
-            else{
-                ans += word[i];
-                }
         }
-        
-        if(flag == 0)
-            return word;
-        else
-            return ans;
+        end:
+        return ans;
     }
 };
