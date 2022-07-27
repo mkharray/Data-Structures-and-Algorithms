@@ -1,8 +1,6 @@
 class Solution {
 public:
     vector<vector<int>> flipAndInvertImage(vector<vector<int>>& image) {
-
-        
         for(int i = 0; i < image.size(); i++){
             int k = 0;
             for(int j =  image[0].size()-1; j > k ; j--){
@@ -10,10 +8,7 @@ public:
                 k++;
             }
             for(int l = 0; l < image[0].size(); l++)
-                if(image[i][l] == 0)
-                    image[i][l] = 1;
-                else
-                    image[i][l] = 0;
+                image[i][l]^=1;
         }
         return image;
     }
