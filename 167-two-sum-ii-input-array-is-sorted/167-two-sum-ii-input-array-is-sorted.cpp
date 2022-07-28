@@ -11,8 +11,6 @@ public:
                 right--;
             else
                 left++;
-            
-            cout<<left<<" "<<right<<endl;
         }
         return {-1,-1};
     }
