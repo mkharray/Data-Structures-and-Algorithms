@@ -10,7 +10,6 @@ public:
         while(j < cols && i < rows){
             if(grid[i][j] < 0){
                 ans = ans+ (cols-j);
-                cout<<grid[i][j]<<" "<<ans<<" "<<j<<endl;
                 j = -1;
                 i++;
                 
