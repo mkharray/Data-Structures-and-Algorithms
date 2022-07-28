@@ -10,13 +10,14 @@ public:
         while(j < cols && i < rows){
             if(grid[i][j] < 0){
                 ans = ans+ (cols-j);
-                j = -1;
+                j = 0;
                 i++;
-                
+                continue;
             }
             if(j == cols-1){
-                j = -1;
+                j = 0;
                 i++;
+                continue;
             }
             j++;
         }
