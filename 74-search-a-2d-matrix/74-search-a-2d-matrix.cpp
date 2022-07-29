@@ -8,10 +8,9 @@ public:
             
             while(index >=0 && i < matrix.size()){
                  x = matrix[i][index];
-                if(target== x){
-                 cout<<x<<" "<< (matrix[i][index]);
+                if(target== x)
                     return true;
-                }
+                
                 else if(target < x)
                     index--;
                 else 
