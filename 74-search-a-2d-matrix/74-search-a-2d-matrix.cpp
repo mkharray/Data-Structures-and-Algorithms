@@ -2,6 +2,7 @@ class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
        //Staicase Search
+        //O(m+n)
         int x;
         int index = matrix[0].size()-1;
         int i = 0;
