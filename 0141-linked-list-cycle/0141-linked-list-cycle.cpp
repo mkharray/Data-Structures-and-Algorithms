@@ -9,18 +9,19 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        unordered_set<ListNode*>s;
-        ListNode *curr = head;
-        while(curr != NULL)
-        {
-            if(s.find(curr) == s.end())
-                s.insert(curr);
-            else
-                return true;
-            
-            curr = curr->next;
-            }
+        ListNode* slow = head; 
+        ListNode* fast = head;
         
+        if(head == NULL || head->next == NULL)
+            return false;
+        
+        while(fast->next != NULL && fast->next->next != NULL){          
+            fast = fast->next->next;
+            slow = slow->next;
+            
+              if(fast == slow)
+                return true;
+        }
         return false;
     }
 };
