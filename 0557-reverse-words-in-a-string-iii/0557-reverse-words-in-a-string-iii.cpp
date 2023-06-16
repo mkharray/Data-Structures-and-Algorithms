@@ -17,6 +17,7 @@ public:
                 
                 }
         }
-        return ans.substr(0,ans.length()-1);
+        ans = ans.substr(0,ans.length()-1);
+        return ans;
     }
 };
