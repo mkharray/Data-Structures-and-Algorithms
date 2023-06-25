@@ -11,23 +11,21 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        unordered_set<int>s;
-        ListNode* curr = head;
-        ListNode* prev = new ListNode();
+        ListNode *curr = head;
+        ListNode *prev = new ListNode();
         prev->next = curr;
+        if(head == NULL || head->next == NULL)
+            return head;
+        curr =  curr->next;
+        prev = prev->next;
         while(curr != NULL){
-            if(s.find(curr->val) == s.end() ){
-                s.insert(curr->val);
-                prev = prev->next;
-            }
-            else if(curr->next != NULL){ // not the last element
+            if(prev->val == curr->val){
                 prev->next = curr->next;
             }
-            else{           // The Last Element
-                prev->next = NULL;
-            }
+            else
+                prev = prev->next;
             curr = curr->next;
-    }
+        }
         return head;
     }
 };
