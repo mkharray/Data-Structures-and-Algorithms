@@ -16,16 +16,14 @@ public:
             return NULL;
         
         ListNode* fast  = head;
-        ListNode* slow  = head;
-        ListNode* slower  = new ListNode();
-        slower->next = slow;
+        ListNode* slow  = new ListNode();
+        slow->next = head; 
         
         while(fast && fast->next){
             slow = slow->next;
-            slower = slower->next;
             fast = fast->next->next;
         }
-        slower->next = slower->next->next;
+        slow->next = slow->next->next;
         return head;
      }
 };
