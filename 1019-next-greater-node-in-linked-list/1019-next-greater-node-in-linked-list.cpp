@@ -26,7 +26,8 @@ public:
         vector<int>ans;
         
         while(head != NULL){
-            ans.push_back(findgreater(head));
+            int x = findgreater(head);
+            ans.push_back(x);
             head = head->next;
         }
         return ans;
