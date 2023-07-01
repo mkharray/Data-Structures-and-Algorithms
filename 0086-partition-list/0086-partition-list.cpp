@@ -11,15 +11,15 @@
 class Solution {
 public:
     ListNode* partition(ListNode* head, int x) {
-        ListNode *newlist = new ListNode();
+        ListNode *smalllist = new ListNode();
         ListNode *biglist = new ListNode();
-        ListNode *newlisthead = newlist;
+        ListNode *smalllisthead = smalllist;
         ListNode *biglisthead = biglist;
         ListNode *curr = head;
         while(curr!= NULL){
             if (curr->val < x){
-                newlist->next = curr;
-                newlist= newlist->next;
+                smalllist->next = curr;
+                smalllist= smalllist->next;
                 }
             else{
                 biglist->next = curr;
@@ -27,8 +27,8 @@ public:
             }
             curr= curr->next;
     }
-        newlist->next = biglisthead->next;
+        smalllist->next = biglisthead->next;
         biglist->next = NULL;
-        return newlisthead->next;
+        return smalllisthead->next;
         }
 };
