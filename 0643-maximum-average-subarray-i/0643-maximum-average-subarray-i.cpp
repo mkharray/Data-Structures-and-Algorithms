@@ -10,7 +10,7 @@ public:
             sum-=nums[i-k];
             sum+=nums[i];
             
-            ans = (ans> (sum/k)) ? ans:(sum/k);
+        ans = max(ans,sum/k);
         }
         return ans;
     }
