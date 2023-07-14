@@ -13,9 +13,11 @@ public:
     ListNode* deleteDuplicates(ListNode* head) {
         ListNode *curr = head;
         ListNode *prev = new ListNode();
+        ListNode *temp = new ListNode();
         prev = curr;
         if(head == NULL || head->next == NULL)
             return head;
+        
         curr = curr->next;
         while(curr != NULL){
             if(prev->val == curr->val){
@@ -25,7 +27,6 @@ public:
             }
             else{
                 prev->next = curr;
-                ListNode *temp = new ListNode();
                 temp = curr;
                 curr=curr->next;
                 prev = temp;
