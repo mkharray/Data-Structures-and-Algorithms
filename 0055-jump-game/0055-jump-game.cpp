@@ -6,7 +6,6 @@ public:
     for(int i = n-1; i >= 0; i--){
             if((nums[i]+i) >= lastgoodindex)
                 lastgoodindex = i;
-            else if(nums[i] == 0){}
     }
         return lastgoodindex == 0;
     }
