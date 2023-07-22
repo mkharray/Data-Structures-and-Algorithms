@@ -29,7 +29,6 @@ public:
         
         
         while(slow != NULL){
-        cout<<v[i]<<" "<<slow->val<<endl;
             if(slow->val != v[i])
             return false;
             
