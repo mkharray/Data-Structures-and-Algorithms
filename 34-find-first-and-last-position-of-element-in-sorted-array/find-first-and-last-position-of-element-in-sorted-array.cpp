@@ -8,12 +8,12 @@ public:
         while(low <= high){
             mid = low +(high-low)/2;
             if(nums[mid] == x){
-                ans = mid;
+                ans = mid;             //storing ans nevertheless
                 if(getFirst == true){
-                    high = mid-1;
+                    high = mid-1;      //moving left to find first index
                 }
                 else{
-                    low = mid+1;
+                    low = mid+1;       //moving right to find last index
                 }
             }
             else if(nums[mid] < x)
@@ -24,8 +24,8 @@ public:
     return ans;
     }
     vector<int> searchRange(vector<int>& nums, int target) {
-            int f = getIndex(nums, target,true);
-            int l = getIndex(nums,target,false);
+            int f = getIndex(nums, target,true); // true to find first index
+            int l = getIndex(nums,target,false); // finding last index
 
             return {f,l};
             }
