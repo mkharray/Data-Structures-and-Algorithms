@@ -23,24 +23,26 @@ public:
     int rightHeight = height(root->right);
     return max(leftHeight, rightHeight) + 1;
     }
-    void deepsum(int &h ,int d, TreeNode*root,int &sum){
-        
-        if(root == NULL)
-        return ;
-        if(d == h){
-            sum+=root->val;
-            return;
-        }
-        deepsum(h,d+1,root->left,sum);
-        deepsum(h,d+1,root->right,sum);
-        cout<<d<<" ";
-    }
+    
     int deepestLeavesSum(TreeNode* root) {
-        
-        
-        int h = height(root);
+        queue<TreeNode*>q;
+        q.push(root);           //Stores address
         int sum = 0;
-        deepsum(h,1, root,sum);
+        while(!q.empty()){
+            int s = q.size();
+            sum = 0;
+            for(int i =0; i< s;i++){
+            TreeNode*curr = q.front(); //New node to store the actual node from the address of front of the queue
+            q.pop();
+            sum += curr->val;            
+            if(curr->left)
+            q.push(curr->left);
+
+            if(curr->right)
+            q.push(curr->right);            
+            }
+
+        }
         return sum;
     }
 };
