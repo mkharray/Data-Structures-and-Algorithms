@@ -12,7 +12,7 @@
  
 class Solution {
 public:
-    //DFS APPROACH
+    //BFS APPROACH
     int height(TreeNode* root){
         if(root == NULL)
         return 0;
