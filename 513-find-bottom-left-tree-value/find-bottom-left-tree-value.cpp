@@ -13,9 +13,6 @@ class Solution {
 public:
     int findBottomLeftValue(TreeNode* root) {
        queue<TreeNode*>q;
-       if(!root->left && !root->right)
-       return root->val;
-
        q.push(root);
        int ans;
 
