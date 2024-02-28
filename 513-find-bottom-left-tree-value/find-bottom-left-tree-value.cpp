@@ -17,25 +17,24 @@ public:
        return root->val;
 
        q.push(root);
-
        int ans;
 
        while(q.empty() == false){
            int sz = q.size();
-           bool leftmost = false; 
            for(int i = 0; i < sz; i++){
                TreeNode* node = q.front();
                q.pop();
 
-               if(node && leftmost == false){
+               if(node ){
                ans = node->val;
-               leftmost = true;
                }
-               if(node->left)
-               q.push(node->left);
+               
 
                if(node->right)
                 q.push(node->right);
+
+                if(node->left)
+               q.push(node->left);
                
            }
        } 
