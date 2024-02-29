@@ -23,13 +23,10 @@ public:
         int last_el;
         while(!q.empty()){
             int sz = q.size();
-    
+            TreeNode* node;
             for(int i = 0; i < sz; i++){
-            TreeNode* node = q.front();
+            node = q.front();
             q.pop();
-
-            if(node)
-            last_el = node->val;
 
             if(node->left)
             q.push(node->left);
@@ -37,7 +34,7 @@ public:
             if(node->right)
             q.push(node->right);
             }
-            v.push_back(last_el);
+            v.push_back(node->val);
         }
         return v;
     }
