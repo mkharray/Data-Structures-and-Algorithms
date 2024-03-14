@@ -6,16 +6,19 @@ public:
 
         vector<string>v (numRows, "");
         int rows = 0;
-        int step = 1;
+        bool flag = false;
         for(int i = 0; i < s.size(); i++){
             v[rows].push_back(s[i]);
             
             if(rows == (numRows-1))
-            step = -1;
+            flag = true;
             else if(rows == 0)
-            step = 1;
+            flag = false;
 
-            rows+=step;
+            if(flag)
+            rows--;
+            else
+            rows++;
         }
         string ans = "";
         for(string i : v)
