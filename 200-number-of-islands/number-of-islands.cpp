@@ -7,15 +7,12 @@ public:
         }
 
         visited[sr][sc] = true;
-        int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-        for (const auto& dir : directions) {
-            int newr = sr + dir[0];
-            int newc = sc + dir[1];
-            if (newr >= 0 && newr < grid.size() && newc >= 0 && newc < grid[0].size()) {
-                dfs(newr, newc, grid, visited);
-        }
+        dfs(sr+1,sc,grid,visited);
+        dfs(sr-1,sc,grid,visited);
+        dfs(sr,sc+1,grid,visited);
+        dfs(sr,sc-1,grid,visited);
       }
-    }
+    
     int numIslands(vector<vector<char>>& grid) {
         int n = grid.size();
         int m = grid[0].size();
