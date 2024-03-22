@@ -11,30 +11,39 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        ListNode *slow = head;
-        ListNode *fast = head;
-        vector<int>v;
-        if(head == NULL || head->next == NULL )
-            return true;
-        
-        while(fast != NULL && fast->next != NULL){
-            fast = fast->next->next;
-            v.push_back(slow->val);
-            slow = slow->next;
-            
-        }
-        int i = v.size()-1;
-        if(fast != NULL)
-        slow = slow->next;
-        
-        
-        while(slow != NULL){
-            if(slow->val != v[i])
-            return false;
-            
-        i--;
-        slow = slow->next;
-            }
+        int c = 1;
+        if(!head || !head->next)
         return true;
+
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while(fast && fast->next){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        //Slow has middle
+        ListNode* prev = nullptr;
+        ListNode* curr = slow;
+
+        while (curr) {
+            ListNode* temp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        //broke off the second half
+        //last element is in prev and order is reversed
+
+        while(prev && head){
+            if(head->val != prev->val)
+            return false;
+
+            head=head->next;
+            prev=prev->next;
+        }
+        return true;
+
+
     }
 };
