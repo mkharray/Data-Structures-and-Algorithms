@@ -19,13 +19,13 @@ public:
      while(j < s.size()){
         v[s[j] - 'a']--;
 
-        if( (j-i+1) == p.size())
-        if(checkzero(v) == true){
+        if( (j-i+1) == p.size()){
+        
+        if(checkzero(v) == true)
         ans.push_back(i);
-        }
-        if( (j-i+1) >= p.size()){
-            v[s[i] - 'a']++;
-            i++;
+        
+        v[s[i] - 'a']++;
+        i++;
         }
         j++;
      }
