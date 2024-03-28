@@ -5,7 +5,6 @@ public:
      int i = 0;
      int j = 0;
      int vow = 0;
-     string t = "";
      string vowels = "aeiou";
      while(j < s.size()){
        
@@ -15,7 +14,6 @@ public:
        if((j-i+1) > k){
         if(vowels.find(s[i]) != string::npos)
         vow--;
-
         
         i++;
        }
