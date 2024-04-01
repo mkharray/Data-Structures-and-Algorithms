@@ -11,19 +11,21 @@
  */
 class Solution {
 public:
-    bool Valid(TreeNode* root, long long minn, long long maxx){
-        if(root == NULL)
+    bool Validate(TreeNode* root, long long min_val, long long max_val){
+        if(!root)
         return true;
-        if(root->val >= maxx || root->val <= minn)
+
+        if(root->val >= max_val || root->val <= min_val)
         return false;
 
-        return ( Valid(root->left, minn, root->val) && Valid(root->right, root->val, maxx));
+        return(Validate(root->left, min_val, root->val) && Validate(root->right, root->val, max_val));
     }
     bool isValidBST(TreeNode* root) {
-        if(root == NULL)
+        if(!root)
         return true;
-        
-        return( Valid(root->left, LONG_MIN, root->val) && Valid(root->right, root->val, LONG_MAX));
 
+        //Value for left should always be less than root & vice versa
+        //Therefore sending max value as root's for left & vice versa
+        return(Validate(root->left,LONG_MIN, root->val) && Validate(root->right, root->val, LONG_MAX)); 
     }
 };
