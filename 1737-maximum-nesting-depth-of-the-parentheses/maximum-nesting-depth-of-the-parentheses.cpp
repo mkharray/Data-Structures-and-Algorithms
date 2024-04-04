@@ -7,8 +7,7 @@ public:
         for(char c : s){
             if(c == '('){
                 st.push('C');
-                if(maxDep < st.size())
-                maxDep = st.size();
+                maxDep = maxDep > st.size() ? maxDep : st.size();
             }
             else if(c == ')')
             st.pop();
