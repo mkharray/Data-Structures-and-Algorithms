@@ -10,7 +10,7 @@ public:
         for(int i = 1; i < s.size(); i++){
         if(st.empty() == true)
         st.push(s[i]);
-        else if( (s[i] - 32 == st.top()) || ((s[i] +32) == st.top()) )
+        else if( abs(s[i] - st.top()) == 32 )
         {
             st.pop();
         } 
