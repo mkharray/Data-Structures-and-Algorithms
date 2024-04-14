@@ -11,31 +11,21 @@
  */
 class Solution {
 public:
-    int sumOfLeftLeaves(TreeNode* root) {
-        queue<TreeNode*>q;
-        q.push(root);
-        int sum = 0;
-        while(!q.empty() )
-        {
-            int sz = q.size();
+    void sumLeft(TreeNode* root, int &leftSum){
+        if(!root)
+        return;
 
-            for(int i = 0; i < sz; i++){
-                TreeNode* curr = q.front();
-                q.pop();
-
-                if(!curr)
-                break;
-
-                if(curr->left){
-                    q.push(curr->left);
-                    TreeNode* left = curr->left;
-                    if(!left->left && !left->right)
-                    sum+=left->val;
-                }
-                if(curr->right)
-                q.push(curr->right);
-            }
+        if(root->left){
+            if(!root->left->left && !root->left->right)
+            leftSum += root->left->val;
         }
-        return sum;
+        sumLeft(root->left, leftSum);
+        
+        sumLeft(root->right, leftSum);
+    }
+    int sumOfLeftLeaves(TreeNode* root) {
+        int ans= 0;
+        sumLeft(root,ans);
+        return ans;
     }
 };
